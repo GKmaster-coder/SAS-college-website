@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer className="bg-[#364d56] text-gray-200 p-10 md:flex md:justify-between md:items-start space-y-8 md:space-y-0">
       {/* Left: Google Map */}
-      <div className="w-full md:w-1/2 h-64 md:h-80 rounded-lg overflow-hidden shadow-xl border-2 border-[#4a5f6b] hover:border-[#5d7a8a] transition-colors duration-300">
+      <div className="w-screen md:w-1/2 h-64 md:h-80 rounded-lg overflow-hidden shadow-xl border-2 border-[#4a5f6b] hover:border-[#5d7a8a] transition-colors duration-300">
         <iframe
           title="SAS Ayurvedic Medical College Location"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.5232403720246!2d82.96812347458815!3d25.30766802911213!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398e318f6f20bd71%3A0xf7dca13f64868f4d!2sSAS%20Ayurvedic%20Medical%20College%20%26%20Hospital!5e0!3m2!1sen!2sin!4v1718000000000!5m2!1sen!2sin"

@@ -7,6 +7,7 @@ import WhyChooseUs from './components/home/WhyChooseUs'
 import Footer from './components/home/Footer'
 import HeaderTop from './components/home/HeaderTop'
 import Events from './components/home/EventsCarousel'
+import Divider from './components/home/DividerSection'
 
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
       <Navbar/>
       <HomeBanner/>
       <About/>
+      <Divider/>
       <WhyChooseUs/>
       <Events/>
       <Footer />

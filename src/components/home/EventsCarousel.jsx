@@ -110,7 +110,7 @@ const EventsCarousel = () => {
   }
 
   return (
-    <div className="w-screen py-12 px-4 md:px-10 lg:px-20 bg-green-500 overflow-hidden">
+    <div className="w-full py-12 px-4 md:px-10 lg:px-20 bg-green-500 overflow-hidden">
       <h2 className="text-center text-4xl md:text-5xl font-extrabold text-gray-50 tracking-wide mb-14">
         Upcoming College Events
       </h2>
