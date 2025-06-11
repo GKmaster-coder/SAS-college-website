@@ -10,7 +10,6 @@ const EventsCarousel = () => {
 
   // Mock event data (replace with your actual data fetching logic)
   useEffect(() => {
-    // Simulate fetching data from an API
     setTimeout(() => {
       try {
         const mockEvents = [
@@ -58,7 +57,7 @@ const EventsCarousel = () => {
         setError(error);
         setLoading(false);
       }
-    }, 1000); // Simulate a 1-second delay
+    }, 1000);
   }, []);
 
   const settings = {
@@ -70,7 +69,7 @@ const EventsCarousel = () => {
     centerMode: true,
     centerPadding: '0px',
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 3000,
     pauseOnHover: true,
     responsive: [
       {
@@ -111,25 +110,25 @@ const EventsCarousel = () => {
   }
 
   return (
-    <div className="container mx-auto py-12">
-      <h2 className="text-3xl font-semibold text-gray-800 mb-8 text-center">
+    <div className="w-screen py-12 px-4 md:px-10 lg:px-20 bg-green-500 overflow-hidden">
+      <h2 className="text-center text-4xl md:text-5xl font-extrabold text-gray-50 tracking-wide mb-14">
         Upcoming College Events
       </h2>
       {events.length > 0 ? (
         <Slider {...settings}>
           {events.map((event) => (
-            <div key={event.id} className="px-4">
-              <div className="event-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-transform duration-300 transform scale-95">
+            <div key={event.id} className="mx-3">
+              <div className="event-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-transform duration-300 transform scale-[0.97] w-full max-w-[420px]">
                 <img
-                  className="w-full h-50 object-cover object-top"
+                  className="w-full h-52 object-cover object-center"
                   src={event.image}
                   alt={event.title}
                 />
-                <div className="p-4">
-                  <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                <div className="p-5">
+                  <h3 className="text-xl font-bold text-gray-800 mb-1">
                     {event.title}
                   </h3>
-                  <p className="text-gray-600 mb-2">
+                  <p className="text-sm text-gray-500 mb-1">
                     {new Date(event.date).toLocaleDateString('en-US', {
                       year: 'numeric',
                       month: 'long',
@@ -137,12 +136,11 @@ const EventsCarousel = () => {
                     })}
                     , {event.time}
                   </p>
-                  <p className="text-gray-600 mb-4">{event.location}</p>
-                  <p className="text-gray-700">{event.description}</p>
-                  {/* Optional: Add a "Learn More" button */}
+                  <p className="text-sm text-gray-500 mb-2">{event.location}</p>
+                  <p className="text-gray-700 text-sm">{event.description}</p>
                   <a
                     href="#"
-                    className="inline-block mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                    className="inline-block mt-4 bg-green-700 hover:bg-green-800 text-white font-semibold py-2 px-4 rounded-full"
                   >
                     Learn More
                   </a>

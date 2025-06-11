@@ -1,59 +1,93 @@
 import React from "react";
+import CountUp from "react-countup";
 import { motion } from "framer-motion";
+import { FaCheckCircle } from "react-icons/fa";
 
 const WhyChooseUs = () => {
   return (
-    <section className="max-w-7xl mx-auto px-6 py-20 bg-gradient-to-br from-[#e0f7f4] via-[#d7eff2] to-[#cce3eb] text-gray-800 relative rounded-xl overflow-hidden shadow-inner">
-      {/* Title */}
-      <motion.h2
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-        className="text-center text-4xl md:text-5xl font-extrabold text-[#264653] tracking-wide mb-14 drop-shadow"
-      >
-        Why Choose Our College?
-      </motion.h2>
-
-      <div className="flex flex-wrap md:flex-nowrap gap-12 items-stretch relative">
-        {/* Text Card */}
+    <section className="w-full px-6 md:px-20 py-16 bg-[#f4f4f4] text-gray-800">
+      <div className="flex flex-col md:flex-row items-center justify-between gap-12">
+        {/* Text Content */}
         <motion.div
-          tabIndex={0}
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="bg-white/70 backdrop-blur-md border border-white/40 shadow-lg rounded-3xl p-6 sm:p-10 flex-1 text-base sm:text-lg leading-7 text-[#34495e] max-h-[520px] overflow-y-auto md:overflow-visible"
+          className="md:w-1/2"
         >
-          <h3 className="text-2xl sm:text-3xl font-bold text-[#2a9d8f] mb-4 sm:mb-6">
-            Discover What Sets Us Apart
+          <h2 className="text-[#006d77] text-2xl font-semibold mb-2">
+            Why Choose Us
+          </h2>
+          <h3 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
+            Building a Future on Ancient Wisdom
           </h3>
-          <p className="mb-4 tracking-wide leading-relaxed">
-            💡 <strong>Experiential Learning:</strong> We believe in learning by doing—from real-world projects to creative labs.
-            <br /><br />
-            🌍 <strong>Global Perspective:</strong> Our curriculum is designed to help you lead in a rapidly changing world.
-            <br /><br />
-            🤝 <strong>Supportive Community:</strong> Our faculty and peers foster a culture of care, curiosity, and collaboration.
-            <br /><br />
-            🚀 <strong>Career Focused:</strong> With personalized mentorship and strong industry ties, we shape future-ready leaders.
+          <p className="text-lg text-gray-700 mb-4">
+            The SAS Ayurvedic Medical College & Hospital was established in 2013
+            by Dr. Ashok Pandey to promote the Indian System of Medicine. Initially
+            founded as “SAS Ayurvedic Hospital” under the “Society of Advanced Studies”,
+            the institution now runs a full-fledged Ayurvedic College in Varanasi.
           </p>
+          <p className="text-lg text-gray-700 mb-6">
+            Our objective is to spread health awareness and treatment through Ayurveda —
+            a system known for minimal side effects and cost-effective healing.
+            We offer a Bachelor of Ayurvedic Medicine and Surgery (B.A.M.S.),
+            recognized by the NCISM and affiliated with Mahayogi Guru Gorakhnath
+            AYUSH University, Gorakhpur.
+          </p>
+
+          {/* Feature List */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 text-[16px]">
+            {[
+              "Recognized by NCISM",
+              "Affiliated with AYUSH University (AUVA005)",
+              "14 Departments with Labs and Museums",
+              "Focus on Traditional & Scientific Knowledge",
+            ].map((item, index) => (
+              <div key={index} className="flex items-start gap-2">
+                <FaCheckCircle className="text-[#f28b64] mt-1" />
+                <span>{item}</span>
+              </div>
+            ))}
+          </div>
         </motion.div>
 
-        {/* Image Card */}
+        {/* Image */}
         <motion.div
-          aria-hidden="true"
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="relative w-full md:w-[480px] h-[300px] md:h-[520px] flex-shrink-0 rounded-3xl overflow-hidden shadow-2xl border-8 border-white bg-[#b5e0dc] z-0"
+          className="md:w-[45%] h-[360px] md:h-[480px] rounded-xl overflow-hidden shadow-xl"
         >
           <img
-            src="https://i.pinimg.com/736x/fa/f1/c8/faf1c8ad5a0f94000dabb367113d3292.jpg"
-            alt="Modern college campus"
+            src="https://sasayurveda.com/wp-content/uploads/2019/05/IMG-20190430-WA0003.jpg"
+            alt="SAS Ayurvedic Campus"
             className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
           />
         </motion.div>
+      </div>
+
+      {/* Stats Section */}
+      <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 text-center gap-10">
+        <div>
+          <h3 className="text-5xl font-extrabold text-gray-900">
+            <CountUp end={720} duration={2.5} />+
+          </h3>
+          <p className="text-lg font-medium mt-2">Happy Patients</p>
+        </div>
+        <div>
+          <h3 className="text-5xl font-extrabold text-gray-900">
+            <CountUp end={85} duration={2.5} />+
+          </h3>
+          <p className="text-lg font-medium mt-2">Qualified Staff</p>
+        </div>
+        <div>
+          <h3 className="text-5xl font-extrabold text-gray-900">
+            <CountUp end={15} duration={2.5} />
+            <sup className="text-xl font-semibold text-[#f28b64]">th</sup>
+          </h3>
+          <p className="text-lg font-medium mt-2">Years of Experience</p>
+        </div>
       </div>
     </section>
   );
