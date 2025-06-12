@@ -1,5 +1,5 @@
 import React from "react";
-import ServiceCard from "../cards/ServiceCard"
+import ServiceCard from "../Shared/ServiceCard";
 import { FaComments, FaSpa, FaLeaf, FaHands, FaHeartbeat, FaMortarPestle } from "react-icons/fa";
 
 const services = [
