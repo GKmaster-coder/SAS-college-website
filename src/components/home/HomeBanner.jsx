@@ -20,7 +20,7 @@ const slides = [
       "Explore diverse programs and vibrant campus life designed to inspire your journey.",
     cta: "Explore Programs",
     ctaLink: "#programs",
-    image: "https://i.pinimg.com/736x/1f/9f/08/1f9f08c6f7ba5fbdf552ee8aabe394ed.jpg",
+    image: "https://i.pinimg.com/736x/5b/e8/b8/5be8b87d226a4c44e815cce70448c930.jpg",
   },
   {
     title: "Join a Thriving Community",
@@ -28,7 +28,7 @@ const slides = [
       "Become part of a network that fosters innovation, leadership, and lifelong friendships.",
     cta: "Request Info",
     ctaLink: "#info",
-    image: "https://images.pexels.com/photos/31968829/pexels-photo-31968829/free-photo-of-cheerful-group-of-friends-celebrating-in-white-shirts.jpeg?auto=compress&cs=tinysrgb&w=600",
+    image: "https://images.pexels.com/photos/4069882/pexels-photo-4069882.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
   },
 ];
 
