@@ -9,6 +9,7 @@ import HeaderTop from './components/home/HeaderTop'
 import Events from './components/home/EventsCarousel'
 import Divider from './components/home/DividerSection'
 import ServiceSection from './components/home/ServiceSection'
+import Recognition from './components/home/Recognition'
 
 
 const App = () => {
@@ -21,6 +22,7 @@ const App = () => {
       <Divider/>
       <WhyChooseUs/>
       <Events/>
+      <Recognition/>
       <ServiceSection/>
       <Footer />
       
