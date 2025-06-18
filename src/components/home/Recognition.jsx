@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 const Image1 = "https://cdn.brandfetch.io/id_jtYn8cb/w/1280/h/719/theme/dark/logo.png?c=1dxbfHSJFAPEGdCLU4o5B";
 const Image2 = "https://cdn.brandfetch.io/idjqzBzUgL/w/400/h/400/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1747226553113";
 const Image3 ="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTN-b-3eunXTy4z91cL3SSkPQ19FJJdytaS1g&s";
-const Image4 = "https://www.mggaugkp.ac.in/images/mggaulogo.png";
+const Image4 = "https://mgug.ac.in/Photo/largelogo.jpg";
 
 const Recognition = () => {
   const cards = [

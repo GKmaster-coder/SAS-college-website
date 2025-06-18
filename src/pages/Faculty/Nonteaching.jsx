@@ -9,7 +9,7 @@ const NonTeaching = () => {
     <section className="bg-[#e9e3d4] py-16">
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-4xl font-bold text-center text-[#283e49] mb-12">
-          Our Teaching Staff
+          Our Non-Teaching Staff
         </h2>
 
         {/* Grid */}

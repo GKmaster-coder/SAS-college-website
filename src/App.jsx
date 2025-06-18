@@ -14,6 +14,9 @@ import Teaching from "./pages/Faculty/Teaching"
 import NonTeaching from "./pages/Faculty/Nonteaching"
 import NotFound from "./pages/NotFound"
 
+import CollegeInfrastructure from "./pages/College/CollegeInfrastructure";
+import HostelInfrastructure from "./pages/College/HostelInfrastructure";
+
 const App = () => {
   return (
     <Router>
@@ -28,6 +31,10 @@ const App = () => {
          {/* Faculty */}
          <Route path="/faculty/teaching-staff" element={<Teaching />} />
          <Route path="/faculty/non-teaching-staff" element={<NonTeaching />} />
+
+         {/* College */}
+          <Route path="/college/college-infrastructure" element={<CollegeInfrastructure />} />
+           <Route path="/college/hostel-infrastructure" element={<HostelInfrastructure />} />
 
           <Route path="*" element={<NotFound />} />
       </Routes>

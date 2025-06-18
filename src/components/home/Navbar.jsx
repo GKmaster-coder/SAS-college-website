@@ -35,7 +35,7 @@ const NavBar = () => {
     about: ["Introduction","Gallery"],
     faculty: ["Teaching Staff", "Non-Teaching Staff"],
     studentzone: ["Syllabus", "Time Table", "Academic Calendar"],
-    college: ["Departments", "Infrastructure", "Library"],
+    college: ["College Infrastructure","Hostel Infrastructure"],
     hospital: ["OPD", "IPD", "Facilities"],
     notices: ["General Notices", "Exam Notices"],
   };
