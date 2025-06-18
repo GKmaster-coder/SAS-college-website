@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { motion } from "framer-motion";
 import {
   FaMapMarkerAlt,
@@ -9,8 +9,8 @@ import {
   FaFacebook,
   FaTwitter,
 } from "react-icons/fa";
-import { HiOutlineGlobeAlt } from "react-icons/hi";
 import PageBanner from "../components/Shared/PageBanner";
+import ContactForm from "../components/home/ContactFrom"
 
 const pageBg =
   "https://i.pinimg.com/736x/5f/4b/52/5f4b52469868262ddb70c68765969995.jpg";
@@ -18,15 +18,12 @@ const pageBg =
 const ContactUs = () => {
   return (
     <div className="bg-[#e9e3d4]">
-      {/* Hero Section */}
       <PageBanner title="Contact Us" backgroundImage={pageBg} />
 
-      {/* Contact Section */}
       <section className="py-16 px-6 md:px-10">
         <div className="max-w-6xl mx-auto">
-          {/* Three Column Layout */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Contact Info Card */}
+            {/* Contact Info */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -44,8 +41,7 @@ const ContactUs = () => {
                   <div>
                     <h4 className="font-semibold text-gray-800">Address</h4>
                     <p className="text-gray-700">
-                      Rameshwar Road, Harhua, Varanasi, Uttar Pradesh (Pin:
-                      221105)
+                      Rameshwar Road, Harhua, Varanasi, Uttar Pradesh (Pin: 221105)
                     </p>
                   </div>
                 </div>
@@ -54,9 +50,7 @@ const ContactUs = () => {
                   <FaPhone className="text-[#885548] mt-1 text-xl" />
                   <div>
                     <h4 className="font-semibold text-gray-800">Phone</h4>
-                    <p className="text-gray-700">
-                      8765624982, 9415255771, 9657777459
-                    </p>
+                    <p className="text-gray-700">8765624982, 9415255771, 9657777459</p>
                   </div>
                 </div>
 
@@ -72,9 +66,7 @@ const ContactUs = () => {
                   <FaEnvelope className="text-[#885548] mt-1 text-xl" />
                   <div>
                     <h4 className="font-semibold text-gray-800">Email</h4>
-                    <p className="text-gray-700">
-                      info@sasayurvediccollege.com
-                    </p>
+                    <p className="text-gray-700">info@sasayurvediccollege.com</p>
                   </div>
                 </div>
 
@@ -90,85 +82,20 @@ const ContactUs = () => {
               <div className="mt-8 pt-6 border-t border-gray-200">
                 <h4 className="font-semibold text-gray-800 mb-4">Follow Us</h4>
                 <div className="flex gap-4">
-                  <a
-                    href="#"
-                    className="text-[#283e49] hover:text-[#885548] text-2xl"
-                  >
+                  <a href="#" className="text-[#283e49] hover:text-[#885548] text-2xl">
                     <FaFacebook />
                   </a>
-                  <a
-                    href="#"
-                    className="text-[#283e49] hover:text-[#885548] text-2xl"
-                  >
+                  <a href="#" className="text-[#283e49] hover:text-[#885548] text-2xl">
                     <FaTwitter />
                   </a>
                 </div>
               </div>
             </motion.div>
 
-            {/* Contact Form Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-xl shadow-md p-8 lg:col-span-2 h-full"
-            >
-              <h3 className="text-2xl font-bold mb-6 text-[#283e49] border-b-2 border-[#8da540] pb-2">
-                Send Us a Message
-              </h3>
-
-              <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-gray-700 mb-2">Full Name</label>
-                  <input
-                    type="text"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8da540]"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-gray-700 mb-2">Email</label>
-                  <input
-                    type="email"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8da540]"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-gray-700 mb-2">Phone</label>
-                  <input
-                    type="tel"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8da540]"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-gray-700 mb-2">Subject</label>
-                  <input
-                    type="text"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8da540]"
-                  />
-                </div>
-
-                <div className="md:col-span-2">
-                  <label className="block text-gray-700 mb-2">Message</label>
-                  <textarea
-                    rows="5"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8da540]"
-                  ></textarea>
-                </div>
-
-                <div className="md:col-span-2">
-                  <button
-                    type="submit"
-                    className="w-full bg-[#885548] hover:bg-[#76473a] text-white py-3 rounded-lg font-semibold transition duration-300"
-                  >
-                    Send Message
-                  </button>
-                </div>
-              </form>
-            </motion.div>
+            {/* Contact Form */}
+            <Suspense fallback={<div>Loading form...</div>}>
+              <ContactForm />
+            </Suspense>
           </div>
         </div>
       </section>
@@ -177,3 +104,4 @@ const ContactUs = () => {
 };
 
 export default ContactUs;
+

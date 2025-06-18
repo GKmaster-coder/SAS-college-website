@@ -6,9 +6,7 @@ import HeaderTop from "./components/home/HeaderTop";
 import Footer from "./components/home/Footer";
 
 //Import for the About Pages
-import Vision from "./pages/About-us/Vision";
-import History from "./pages/About-us/History";
-import Chairman from "./pages/About-us/Chairman";
+import Gallery from "./pages/About-us/Gallery";
 import Introduction from "./pages/About-us/Introduction";
 import Contact from "./pages/ContactUs"
 const App = () => {
@@ -21,9 +19,7 @@ const App = () => {
         < Route path='/contact'  element={<Contact/>}/>
         {/* About */}
         <Route path="/about/introduction" element={<Introduction />} />
-        <Route path="/about/vision" element={<Vision />} />
-        <Route path="/about/history" element={<History />} />
-        <Route path="/about/chairman-message" element={<Chairman />} />
+        <Route path="/about/gallery" element={<Gallery />} />
       </Routes>
       <Footer />
     </Router>

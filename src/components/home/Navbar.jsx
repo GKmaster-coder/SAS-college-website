@@ -4,7 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 
 const NavBar = () => {
   const [dropdowns, setDropdowns] = useState({
-    aboutus: false,
+    about: false,
     faculty: false,
     studentzone: false,
     college: false,
@@ -12,20 +12,19 @@ const NavBar = () => {
     notices: false,
   });
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
   const location = useLocation();
 
-  // Automatically close all dropdowns on route change
+  // Close all dropdowns on route change
   useEffect(() => {
     setDropdowns({
-      aboutus: false,
+      about: false,
       faculty: false,
       studentzone: false,
       college: false,
       hospital: false,
       notices: false,
     });
-    setMobileMenuOpen(false); // also close mobile menu
+    setMobileMenuOpen(false);
   }, [location]);
 
   const toggleDropdown = (key) => {
@@ -33,7 +32,7 @@ const NavBar = () => {
   };
 
   const dropdownItems = {
-    about: ["Introduction","Vision", "History", "Chairman Message"],
+    about: ["Introduction","Gallery"],
     faculty: ["Teaching Staff", "Non-Teaching Staff"],
     studentzone: ["Syllabus", "Time Table", "Academic Calendar"],
     college: ["Departments", "Infrastructure", "Library"],
@@ -41,48 +40,77 @@ const NavBar = () => {
     notices: ["General Notices", "Exam Notices"],
   };
 
+  // Check if a link is active
+  const isActive = (path) => {
+    return location.pathname === path || 
+           (path !== '/' && location.pathname.startsWith(path));
+  };
+
+  // Check if any dropdown item is active
+  const isDropdownActive = (key) => {
+    return dropdownItems[key].some(item => {
+      const path = `/${key}/${item.toLowerCase().replace(/ /g, '-')}`;
+      return isActive(path);
+    });
+  };
+
   return (
     <header className="bg-white text-[#4b2e2e] shadow-md z-50 relative">
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <img
-            src="./logo.png"
-            alt="SAS Ayurvedic Medical College & Hospital"
-            className="w-36 h-20 object-contain"
-          />
+          <Link to="/">
+            <img
+              src="./logo.png"
+              alt="SAS Ayurvedic Medical College & Hospital"
+              className="w-36 h-20 object-contain"
+            />
+          </Link>
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex space-x-6 items-center font-medium text-[17px]">
-            <Link to="/" className="hover:text-brown-700 transition">Home</Link>
+            <Link 
+              to="/" 
+              className={`hover:text-[#6b4c3b] transition ${isActive('/') ? 'text-red-600 font-semibold' : ''}`}
+            >
+              Home
+            </Link>
 
             {Object.keys(dropdownItems).map((key) => (
               <div key={key} className="relative">
                 <button
                   onClick={() => toggleDropdown(key)}
-                  className="flex items-center gap-1 hover:text-[#6b4c3b]"
+                  className={`flex items-center gap-1 hover:text-[#6b4c3b] ${isDropdownActive(key) ? 'text-red-600 font-semibold' : ''}`}
                 >
                   {key.replace(/([a-z])([A-Z])/g, '$1 $2').replace(/^\w/, c => c.toUpperCase())}
                   <ChevronDown className="w-4 h-4" />
                 </button>
                 {dropdowns[key] && (
                   <ul className="absolute left-0 mt-2 w-44 bg-[#6b4c3b] rounded-md shadow-lg z-50">
-                    {dropdownItems[key].map((item) => (
-                      <li key={item}>
-                        <Link
-                          to={`/${key}/${item.toLowerCase().replace(/ /g, '-')}`}
-                          className="block px-4 py-2 text-sm text-white hover:bg-[#a67c52]"
-                        >
-                          {item}
-                        </Link>
-                      </li>
-                    ))}
+                    {dropdownItems[key].map((item) => {
+                      const path = `/${key}/${item.toLowerCase().replace(/ /g, '-')}`;
+                      return (
+                        <li key={item}>
+                          <Link
+                            to={path}
+                            className={`block px-4 py-2 text-sm hover:bg-[#a67c52] ${isActive(path) ? 'bg-[#a67c52] font-medium' : 'text-white'}`}
+                          >
+                            {item}
+                          </Link>
+                        </li>
+                      );
+                    })}
                   </ul>
                 )}
               </div>
             ))}
 
-            <Link to="/contact" className="hover:text-[#6b4c3b] transition">Contact Us</Link>
+            <Link 
+              to="/contact" 
+              className={`hover:text-[#6b4c3b] transition ${isActive('/contact') ? 'text-red-600 font-semibold' : ''}`}
+            >
+              Contact Us
+            </Link>
           </nav>
 
           {/* Mobile Menu Toggle */}
@@ -101,34 +129,47 @@ const NavBar = () => {
       {/* Mobile Dropdown */}
       {mobileMenuOpen && (
         <div className="md:hidden bg-[#f9f4f0] px-4 py-6 space-y-2 text-[#4b2e2e]">
-          <Link to="/" className="block px-3 py-2 rounded hover:bg-[#d9c2b0]">Home</Link>
+          <Link 
+            to="/" 
+            className={`block px-3 py-2 rounded hover:bg-[#d9c2b0] ${isActive('/') ? 'bg-[#d9c2b0] text-red-600 font-semibold' : ''}`}
+          >
+            Home
+          </Link>
 
           {Object.keys(dropdownItems).map((key) => (
             <div key={key}>
               <button
                 onClick={() => toggleDropdown(key)}
-                className="w-full flex justify-between items-center px-3 py-2 hover:bg-[#d9c2b0]"
+                className={`w-full flex justify-between items-center px-3 py-2 hover:bg-[#d9c2b0] ${isDropdownActive(key) ? 'bg-[#d9c2b0] text-red-600 font-semibold' : ''}`}
               >
                 {key.replace(/([a-z])([A-Z])/g, '$1 $2').replace(/^\w/, c => c.toUpperCase())}
                 <ChevronDown className="w-4 h-4" />
               </button>
               {dropdowns[key] && (
                 <div className="pl-4">
-                  {dropdownItems[key].map((item) => (
-                    <Link
-                      key={item}
-                      to={`/${key}/${item.toLowerCase().replace(/ /g, '-')}`}
-                      className="block px-3 py-1 rounded hover:bg-[#a67c52] hover:text-white"
-                    >
-                      {item}
-                    </Link>
-                  ))}
+                  {dropdownItems[key].map((item) => {
+                    const path = `/${key}/${item.toLowerCase().replace(/ /g, '-')}`;
+                    return (
+                      <Link
+                        key={item}
+                        to={path}
+                        className={`block px-3 py-1 rounded hover:bg-[#a67c52] hover:text-white ${isActive(path) ? 'bg-[#a67c52] text-white font-medium' : ''}`}
+                      >
+                        {item}
+                      </Link>
+                    );
+                  })}
                 </div>
               )}
             </div>
           ))}
 
-          <Link to="/contact" className="block px-3 py-2 rounded hover:bg-[#d9c2b0]">Contact Us</Link>
+          <Link 
+            to="/contact" 
+            className={`block px-3 py-2 rounded hover:bg-[#d9c2b0] ${isActive('/contact') ? 'bg-[#d9c2b0] text-red-600 font-semibold' : ''}`}
+          >
+            Contact Us
+          </Link>
         </div>
       )}
     </header>
