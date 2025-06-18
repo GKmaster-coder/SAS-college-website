@@ -33,7 +33,7 @@ const NavBar = () => {
   };
 
   const dropdownItems = {
-    aboutus: ["Vision & Mission", "History", "Chairman Message"],
+    about: ["Introduction","Vision", "History", "Chairman Message"],
     faculty: ["Teaching Staff", "Non-Teaching Staff"],
     studentzone: ["Syllabus", "Time Table", "Academic Calendar"],
     college: ["Departments", "Infrastructure", "Library"],
