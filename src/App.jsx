@@ -9,6 +9,11 @@ import Footer from "./components/home/Footer";
 import Gallery from "./pages/About-us/Gallery";
 import Introduction from "./pages/About-us/Introduction";
 import Contact from "./pages/ContactUs"
+//Import from the Faculty
+import Teaching from "./pages/Faculty/Teaching"
+import NonTeaching from "./pages/Faculty/Nonteaching"
+import NotFound from "./pages/NotFound"
+
 const App = () => {
   return (
     <Router>
@@ -20,6 +25,11 @@ const App = () => {
         {/* About */}
         <Route path="/about/introduction" element={<Introduction />} />
         <Route path="/about/gallery" element={<Gallery />} />
+         {/* Faculty */}
+         <Route path="/faculty/teaching-staff" element={<Teaching />} />
+         <Route path="/faculty/non-teaching-staff" element={<NonTeaching />} />
+
+          <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </Router>
