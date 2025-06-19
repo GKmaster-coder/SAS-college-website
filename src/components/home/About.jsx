@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const About = () => {
+  const phone="./phone.png"
   return (
     <section className="bg-[#fefaf6] py-16 px-4 md:px-10 lg:px-20">
       <div className="flex flex-col lg:flex-row items-center gap-12">
@@ -71,7 +72,7 @@ const About = () => {
               Learn More
             </motion.a>
             <div className="flex items-center gap-4">
-              <img src="./phone.png" alt="Phone" className="h-20 w-20" />
+              <img src="/phone.png" alt="Phone" className="h-20 w-20" />
               <div>
                 <p className="font-bold text-[#333]">Call Us Now</p>
                 <p className="text-gray-600">+91-9876543210</p>

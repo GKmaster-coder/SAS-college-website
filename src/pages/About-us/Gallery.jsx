@@ -1,7 +1,10 @@
 import React from "react";
 import ImageGrid from "../../components/Shared/ImageGrid";
+import PageBanner from "../../components/Shared/PageBanner";
 
 const Gallery = () => {
+  const aboutBg =
+    "https://i.pinimg.com/736x/5f/4b/52/5f4b52469868262ddb70c68765969995.jpg";
   const imageGroups = [
     [
       "https://i.pinimg.com/736x/8b/d8/0c/8bd80c0475cc6cbe04c007b84a6826dc.jpg",
@@ -46,10 +49,12 @@ const Gallery = () => {
   ];
 
   return (
-    <div className="py-10 bg-[#fefaf6]">
-      <h2 className="text-center text-4xl font-bold mb-8 text-amber-700">Campus Gallery</h2>
-      <ImageGrid imageGroups={imageGroups} />
-    </div>
+    <>
+      <PageBanner title="Campus Gallery" backgroundImage={aboutBg} />
+      <div className="py-10 bg-[#fefaf6]">
+        <ImageGrid imageGroups={imageGroups} />
+      </div>
+    </>
   );
 };
 

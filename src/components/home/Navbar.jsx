@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { ChevronDown, Menu, X } from "lucide-react";
-import { Link, useLocation } from "react-router-dom"; 
+import { Link, useLocation } from "react-router-dom";
 
 const NavBar = () => {
   const [dropdowns, setDropdowns] = useState({
@@ -13,9 +13,26 @@ const NavBar = () => {
   });
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const navRef = useRef(null);
 
-  // Close all dropdowns on route change
+  // Close dropdowns and menu on route change
   useEffect(() => {
+    closeAllDropdowns();
+    setMobileMenuOpen(false);
+  }, [location]);
+
+  // Close dropdowns when clicking outside (for desktop only)
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (navRef.current && !navRef.current.contains(event.target)) {
+        closeAllDropdowns();
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const closeAllDropdowns = () => {
     setDropdowns({
       about: false,
       faculty: false,
@@ -24,29 +41,30 @@ const NavBar = () => {
       hospital: false,
       notices: false,
     });
-    setMobileMenuOpen(false);
-  }, [location]);
+  };
 
   const toggleDropdown = (key) => {
-    setDropdowns((prev) => ({ ...prev, [key]: !prev[key] }));
+    setDropdowns((prev) => {
+      const updated = {};
+      Object.keys(prev).forEach((k) => (updated[k] = k === key ? !prev[k] : false));
+      return updated;
+    });
   };
 
   const dropdownItems = {
-    about: ["Introduction","Gallery"],
+    about: ["Introduction", "Gallery"],
     faculty: ["Teaching Staff", "Non-Teaching Staff"],
     studentzone: ["Syllabus", "Time Table", "Academic Calendar"],
-    college: ["College Infrastructure","Hostel Infrastructure"],
+    college: ["College Infrastructure", "Hostel Infrastructure"],
     hospital: ["OPD", "IPD", "Facilities"],
     notices: ["General Notices", "Exam Notices"],
   };
 
-  // Check if a link is active
   const isActive = (path) => {
     return location.pathname === path || 
            (path !== '/' && location.pathname.startsWith(path));
   };
 
-  // Check if any dropdown item is active
   const isDropdownActive = (key) => {
     return dropdownItems[key].some(item => {
       const path = `/${key}/${item.toLowerCase().replace(/ /g, '-')}`;
@@ -55,15 +73,16 @@ const NavBar = () => {
   };
 
   return (
-    <header className="bg-white text-[#4b2e2e] shadow-md z-50 relative">
+    <header className="bg-white text-[#4b2e2e] shadow-md z-50 relative" ref={navRef}>
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link to="/">
             <img
-              src="./logo.png"
+              src="/logo.png"
               alt="SAS Ayurvedic Medical College & Hospital"
-              className="w-36 h-20 object-contain"
+              className="w-40 h-clear
+               object-contain"
             />
           </Link>
 
@@ -83,7 +102,9 @@ const NavBar = () => {
                   className={`flex items-center gap-1 hover:text-[#6b4c3b] ${isDropdownActive(key) ? 'text-red-600 font-semibold' : ''}`}
                 >
                   {key.replace(/([a-z])([A-Z])/g, '$1 $2').replace(/^\w/, c => c.toUpperCase())}
-                  <ChevronDown className="w-4 h-4" />
+                  <ChevronDown 
+                    className={`w-4 h-4 transition-transform duration-200 ${dropdowns[key] ? 'rotate-180' : ''}`} 
+                  />
                 </button>
                 {dropdowns[key] && (
                   <ul className="absolute left-0 mt-2 w-44 bg-[#6b4c3b] rounded-md shadow-lg z-50">
@@ -143,7 +164,9 @@ const NavBar = () => {
                 className={`w-full flex justify-between items-center px-3 py-2 hover:bg-[#d9c2b0] ${isDropdownActive(key) ? 'bg-[#d9c2b0] text-red-600 font-semibold' : ''}`}
               >
                 {key.replace(/([a-z])([A-Z])/g, '$1 $2').replace(/^\w/, c => c.toUpperCase())}
-                <ChevronDown className="w-4 h-4" />
+                <ChevronDown 
+                  className={`w-4 h-4 transition-transform duration-200 ${dropdowns[key] ? 'rotate-180' : ''}`} 
+                />
               </button>
               {dropdowns[key] && (
                 <div className="pl-4">
