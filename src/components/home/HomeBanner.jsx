@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination, EffectFade } from "swiper/modules";
 import "swiper/css";
@@ -12,27 +13,32 @@ const slides = [
       "Empowering students to achieve academic excellence and personal growth through a supportive community.",
     cta: "Apply Now",
     ctaLink: "#apply",
-    image: "https://plus.unsplash.com/premium_photo-1714397507055-b74c159c8d5f?q=80&w=2070&auto=format&fit=crop",
+    image:
+      "https://plus.unsplash.com/premium_photo-1714397507055-b74c159c8d5f?q=80&w=2070&auto=format&fit=crop",
   },
   {
     title: "Discover Your Potential",
     description:
       "Explore diverse programs and vibrant campus life designed to inspire your journey.",
-    cta: "Explore Programs",
+    cta: "Apply Now",
     ctaLink: "#programs",
-    image: "https://i.pinimg.com/736x/5b/e8/b8/5be8b87d226a4c44e815cce70448c930.jpg",
+    image:
+      "https://i.pinimg.com/736x/5b/e8/b8/5be8b87d226a4c44e815cce70448c930.jpg",
   },
   {
     title: "Join a Thriving Community",
     description:
       "Become part of a network that fosters innovation, leadership, and lifelong friendships.",
-    cta: "Request Info",
+    cta: "Apply Now",
     ctaLink: "#info",
-    image: "https://images.pexels.com/photos/4069882/pexels-photo-4069882.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    image:
+      "https://images.pexels.com/photos/4069882/pexels-photo-4069882.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
   },
 ];
 
-export default function HomeBanner() {
+export default function HomeBanner({ onApplyClick }) {
+  const [isFormOpen, setIsFormOpen] = useState(false);
+
   return (
     <section className="relative w-full h-screen max-h-[800px] overflow-hidden bg-black">
       <Swiper
@@ -75,12 +81,12 @@ export default function HomeBanner() {
                 <p className="text-lg sm:text-xl lg:text-2xl font-light drop-shadow-md">
                   {slide.description}
                 </p>
-                <a
-                  href={slide.ctaLink}
+                <button
+                  onClick={onApplyClick}
                   className="inline-block bg-gradient-to-r from-[#7b4e32] to-[#a06f4c] text-white font-semibold text-lg px-6 py-3 rounded-full shadow-lg hover:scale-105 transition duration-300"
                 >
                   {slide.cta}
-                </a>
+                </button>
               </div>
             </div>
           </SwiperSlide>

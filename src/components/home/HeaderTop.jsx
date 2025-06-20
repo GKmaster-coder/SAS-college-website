@@ -1,19 +1,23 @@
-import { PhoneCall, Mail, Clock } from 'lucide-react';
-import { FaWhatsapp } from 'react-icons/fa';
+import { PhoneCall, Mail, Clock } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 
 export default function HeaderTop() {
   return (
-    <div className="w-full bg-[rgb(244,225,182)] text-[#2c2c2c] text-xs sm:text-sm shadow-sm border-b border-[#e0c97d]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-1.5 sm:py-3 flex flex-col md:flex-row items-center justify-between gap-2 sm:gap-6">
+    <div className="sticky top-0 z-[60] w-full bg-[rgb(244,225,182)] text-[#2c2c2c] text-xs sm:text-sm shadow-sm border-b border-[#e0c97d]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-2 sm:py-3 flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-6">
 
         {/* Left Section */}
-        <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-8">
-          <div className="flex items-center gap-2 text-[11px] sm:text-sm">
+        <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-[11px] sm:text-sm">
+          {/* Open Hours */}
+          <div className="flex items-center gap-1 sm:gap-2">
             <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-[#a87d28]" />
-            <span className="font-medium">Open Hours: <span className="font-semibold">9am to 4pm</span></span>
+            <span className="font-medium">
+              Open Hours: <span className="font-semibold">9am to 4pm</span>
+            </span>
           </div>
 
-          <div className="hidden md:flex items-center gap-2 text-[11px] sm:text-sm">
+          {/* Email */}
+          <div className="hidden md:flex items-center gap-1 sm:gap-2">
             <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-[#a87d28]" />
             <a
               href="mailto:abc3435r.org"
@@ -25,8 +29,9 @@ export default function HeaderTop() {
         </div>
 
         {/* Right Section */}
-        <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-[11px] sm:text-sm">
-          <div className="flex items-center gap-2">
+        <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-[11px] sm:text-sm">
+          {/* Phone Call */}
+          <div className="flex items-center gap-1 sm:gap-2">
             <span className="font-semibold text-[#a87d28]">Admission Enquiry:</span>
             <PhoneCall className="w-4 h-4 sm:w-5 sm:h-5 text-[#a87d28]" />
             <a
@@ -42,9 +47,9 @@ export default function HeaderTop() {
             href="https://wa.me/917054750612?text=Hello%2C%20I%20have%20an%20enquiry%20regarding%20admission."
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-2 sm:py-2 bg-[#25D366] text-white font-semibold uppercase rounded-full hover:bg-[#1fcf5b] hover:scale-105 transition-all duration-200"
+            className="flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-[#25D366] text-white font-semibold uppercase rounded-full hover:bg-[#1fcf5b] hover:scale-105 transition-all duration-200"
           >
-            <FaWhatsapp className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+            <FaWhatsapp className="w-4 h-4 sm:w-5 sm:h-5" />
             <span>WhatsApp</span>
           </a>
         </div>

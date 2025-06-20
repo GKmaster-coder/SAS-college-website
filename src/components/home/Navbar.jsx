@@ -73,7 +73,7 @@ const NavBar = () => {
   };
 
   return (
-    <header className="bg-white text-[#4b2e2e] shadow-md z-50 relative" ref={navRef}>
+    <header className="bg-white text-[#4b2e2e] shadow-md " ref={navRef}>
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
