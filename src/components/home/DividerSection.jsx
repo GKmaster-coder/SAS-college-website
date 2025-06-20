@@ -1,4 +1,9 @@
-const DividerSection = () => {
+import {useState} from "react";
+
+const DividerSection = ({onApplyClick}) => {
+ const [isFormOpen, setIsFormOpen] = useState(false);
+
+  
   return (
     <section
       className="relative w-full py-20 text-white text-center"
@@ -28,12 +33,12 @@ const DividerSection = () => {
 
         {/* Right Button */}
         <div className="mt-6 md:mt-0">
-          <a
-            href="#apply"
+          <button
+             onClick={onApplyClick}
             className="bg-[#a67c52] hover:bg-amber-900 text-white px-6 py-3 rounded-full text-lg shadow-lg transition duration-300"
           >
             Apply Now
-          </a>
+          </button>
         </div>
       </div>
     </section>

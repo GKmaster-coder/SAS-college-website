@@ -16,6 +16,7 @@ import NotFound from "./pages/NotFound"
 
 import CollegeInfrastructure from "./pages/College/CollegeInfrastructure";
 import HostelInfrastructure from "./pages/College/HostelInfrastructure";
+import FloatingContactButton from "./components/Shared/FloatingContactButton"
 
 const App = () => {
   return (
@@ -38,6 +39,8 @@ const App = () => {
 
           <Route path="*" element={<NotFound />} />
       </Routes>
+       
+       <FloatingContactButton/>
       <Footer />
     </Router>
   );

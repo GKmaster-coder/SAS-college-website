@@ -27,10 +27,11 @@ const Home = () => {
 
   return (
     <div>
-      <HomeBanner onApplyClick={() => setIsFormOpen(true)} />
+    <HomeBanner onApplyClick={() => setIsFormOpen(true)} />
       {isFormOpen && <PopUpForm onClose={() => setIsFormOpen(false)} />}
       <About />
-      <Divider />
+      <Divider onApplyClick={() => setIsFormOpen(true)} />
+        {isFormOpen && <PopUpForm onClose={() => setIsFormOpen(false)} />}
       <WhyChooseUs />
       <Events />
       <Recognition />
