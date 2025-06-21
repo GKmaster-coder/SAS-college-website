@@ -8,6 +8,7 @@ import ServiceSection from "../components/home/ServiceSection";
 import Recognition from "../components/home/Recognition";
 import PopUpForm from "../components/home/PopUpForm";
 import CourseCard from "../components/home/CourseCard";
+import OurTeam from "../components/home/OurTeam";
 
 const Home = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
@@ -37,6 +38,7 @@ const Home = () => {
       <WhyChooseUs />
       <Events />
       <Recognition />
+      <OurTeam />
       <ServiceSection />
     </div>
   );
