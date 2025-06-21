@@ -7,6 +7,7 @@ import Divider from "../components/home/DividerSection";
 import ServiceSection from "../components/home/ServiceSection";
 import Recognition from "../components/home/Recognition";
 import PopUpForm from "../components/home/PopUpForm";
+import CourseCard from "../components/home/CourseCard";
 
 const Home = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
@@ -27,11 +28,12 @@ const Home = () => {
 
   return (
     <div>
-    <HomeBanner onApplyClick={() => setIsFormOpen(true)} />
+      <HomeBanner onApplyClick={() => setIsFormOpen(true)} />
       {isFormOpen && <PopUpForm onClose={() => setIsFormOpen(false)} />}
       <About />
+      <CourseCard />
       <Divider onApplyClick={() => setIsFormOpen(true)} />
-        {isFormOpen && <PopUpForm onClose={() => setIsFormOpen(false)} />}
+      {isFormOpen && <PopUpForm onClose={() => setIsFormOpen(false)} />}
       <WhyChooseUs />
       <Events />
       <Recognition />
