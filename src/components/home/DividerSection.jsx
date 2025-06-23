@@ -9,7 +9,7 @@ const DividerSection = ({onApplyClick}) => {
       className="relative w-full py-20 text-white text-center"
       style={{
         backgroundImage:
-          "url('https://i.pinimg.com/736x/5f/4b/52/5f4b52469868262ddb70c68765969995.jpg')",
+          "url('./divider-img.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundAttachment: "fixed", // use 'fixed' on desktop only for better mobile compatibility
