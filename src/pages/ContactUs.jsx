@@ -13,7 +13,7 @@ import PageBanner from "../components/Shared/PageBanner";
 import ContactForm from "../components/home/ContactFrom"
 
 const pageBg =
-  "https://i.pinimg.com/736x/5f/4b/52/5f4b52469868262ddb70c68765969995.jpg";
+  "/divider-img.jpg";
 
 const ContactUs = () => {
   return (

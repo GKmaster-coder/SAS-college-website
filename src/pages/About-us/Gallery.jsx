@@ -4,7 +4,7 @@ import PageBanner from "../../components/Shared/PageBanner";
 
 const Gallery = () => {
   const aboutBg =
-    "https://i.pinimg.com/736x/5f/4b/52/5f4b52469868262ddb70c68765969995.jpg";
+    "/divider-img.jpg";
   const imageGroups = [
     [
       "https://i.pinimg.com/736x/8b/d8/0c/8bd80c0475cc6cbe04c007b84a6826dc.jpg",

@@ -3,7 +3,7 @@ import { FaWhatsapp } from "react-icons/fa";
 
 export default function HeaderTop() {
   return (
-    <div className="sticky top-0 z-[60] w-full bg-[rgb(244,225,182)] text-[#2c2c2c] text-xs sm:text-sm shadow-sm border-b border-[#e0c97d]">
+    <div className=" top-0 z-[60] w-full bg-[rgb(244,225,182)] text-[#2c2c2c] text-xs sm:text-sm shadow-sm border-b border-[#e0c97d]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-2 sm:py-3 flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-6">
 
         {/* Left Section */}

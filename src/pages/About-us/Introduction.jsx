@@ -7,7 +7,7 @@ import States from "../../components/Shared/CollegeStatesSection";
 import AboutCards from "../../components/Shared/AboutCards"
 
 const aboutBg =
-  "https://i.pinimg.com/736x/5f/4b/52/5f4b52469868262ddb70c68765969995.jpg";
+  "/divider-img.jpg";
 
 const Introduction = () => {
   return (
