@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Exam = () => {
+const vacancies = () => {
   return (
     <div>
-      Exam
+    
     </div>
   )
 }
 
-export default Exam
+export default vacancies
