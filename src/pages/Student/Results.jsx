@@ -1,11 +1,11 @@
 import React from 'react'
 
-const calender = () => {
+const Results = () => {
   return (
     <div>
-      
+resg
     </div>
   )
 }
 
-export default calender
+export default Results

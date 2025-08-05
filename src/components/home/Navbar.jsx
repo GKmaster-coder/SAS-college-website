@@ -45,10 +45,10 @@ const NavBar = () => {
   const dropdownItems = {
     about: ["Introduction", "Gallery","Course&Fees","Rules & Regulations","Other Activities"],
     faculty: ["Teaching Staff", "Non-Teaching Staff"],
-    studentzone: ["Syllabus", "Time Table", "Academic Calendar"],
+    studentzone: ["List of Student", "Monthly Attendence of Student", "Results","Important Material"],
     college: ["College Infrastructure", "Hostel Infrastructure"],
     hospital: ["Introduction with Infrastructure","Departmentwise Clinical Material and Facilities"],
-    notices: ["General Notices", "Exam Notices"],
+    notices: ["Vacancies","News","Notice","Downloads"],
   };
 
   const isActive = (path) =>

@@ -24,6 +24,13 @@ import FloatingContactButton from "./components/Shared/FloatingContactButton"
 //Import From Hospital
 import IntroductionwithInfrastructure from "./pages/Hospital/IntroductionwithInfrastructure";
 import Facilities from "./pages/Hospital/Facilities";
+
+//Import From Student Zone
+import ListofStudent from "./pages/Student/ListofStudent";
+import MonthlyAttendence from "./pages/Student/MonthlyAttendence";
+import Results from "./pages/Student/Results";
+import ImportantMaterial from "./pages/Student/ImportantMaterial";
+
 const App = () => {
   return (
     <Router>
@@ -42,11 +49,18 @@ const App = () => {
         <Route path="/faculty/teaching-staff" element={<Teaching />} />
         <Route path="/faculty/non-teaching-staff" element={<NonTeaching />} />
 
+        {/* Student Zone */}
+        <Route path="/studentzone/list-of-student" element={<ListofStudent />} />
+        <Route path="/studentzone/monthly-attendence-of-student" element={<MonthlyAttendence/>} />
+        <Route path="/studentzone/results" element={<Results />} />
+        <Route path="/studentzone/important-material" element={<ImportantMaterial />} />
+
+
         {/* College */}
         <Route path="/college/college-infrastructure" element={<CollegeInfrastructure />} />
         <Route path="/college/hostel-infrastructure" element={<HostelInfrastructure />} />
-       {/* Hospital */}
-       <Route path="/hospital/introduction-with-infrastructure" element={<IntroductionwithInfrastructure />} />
+        {/* Hospital */}
+        <Route path="/hospital/introduction-with-infrastructure" element={<IntroductionwithInfrastructure />} />
         <Route path="/hospital/departmentwise-clinical-material-and-facilities" element={<Facilities />} />
 
         <Route path="*" element={<NotFound />} />
