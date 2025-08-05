@@ -1,11 +1,11 @@
 import React from 'react'
 
-const IPD = () => {
+const CourseFee = () => {
   return (
     <div>
-      
+      History
     </div>
   )
 }
 
-export default IPD
+export default CourseFee;

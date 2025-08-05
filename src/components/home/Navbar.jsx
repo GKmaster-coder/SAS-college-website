@@ -43,11 +43,11 @@ const NavBar = () => {
   }, []);
 
   const dropdownItems = {
-    about: ["Introduction", "Gallery"],
+    about: ["Introduction", "Gallery","Course&Fees","Rules & Regulations","Other Activities"],
     faculty: ["Teaching Staff", "Non-Teaching Staff"],
     studentzone: ["Syllabus", "Time Table", "Academic Calendar"],
     college: ["College Infrastructure", "Hostel Infrastructure"],
-    hospital: ["OPD", "IPD", "Facilities"],
+    hospital: ["Introduction with Infrastructure","Departmentwise Clinical Material and Facilities"],
     notices: ["General Notices", "Exam Notices"],
   };
 
